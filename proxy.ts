@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 const locales = ['ru', 'en', 'de', 'fr', 'es'];
 const defaultLocale = 'ru';
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (pathname.startsWith('/_next') || pathname.startsWith('/favicon.ico')) {
