@@ -35,5 +35,3 @@ export const config = {
   matcher: ['/((?!_next|favicon.ico).*)'],
 };
 
-// Явно указываем Edge Runtime
-export const runtime = 'edge';
