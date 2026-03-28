@@ -1,0 +1,416 @@
+{
+  "common": {
+    "calculate": "Berechnen",
+    "result": "Ergebnis",
+    "related": "Ähnliche Rechner",
+    "title": "Rechner",
+    "categories": "Kategorien",
+    "all_calculators": "Alle Rechner",
+    "hero_title": "Rechner für jede Aufgabe",
+    "hero_description": "Online-Rechner für Finanzen, Business und Gesundheit. Berechnen Sie wichtige Kennzahlen schnell.",
+    "seo_title": "Über Rechner",
+    "seo_description": "Unsere Website bietet praktische Online-Rechner für verschiedene Bereiche: Finanzen, Business und Gesundheit. Nutzen Sie die Tools kostenlos und erhalten Sie in Sekundenschnelle genaue Ergebnisse.",
+    "footer_text": "CalcSite — alle Rechner für Ihre Aufgaben"
+  },
+  "categories": {
+    "finance": "Finanzen",
+    "business": "Business",
+    "health": "Gesundheit",
+    "construction": "Bau"
+  },
+  "calculators": {
+    "loan-calculator": {
+      "title": "Kreditrechner",
+      "description": "Berechnen Sie Ihre monatliche Kreditrate (Annuität).",
+      "fields": {
+        "amount": "Kreditsumme (₽)",
+        "rate": "Zinssatz (% pro Jahr)",
+        "term": "Laufzeit (Monate)"
+      }
+    },
+    "mortgage": {
+      "title": "Hypothekenrechner",
+      "description": "Berechnen Sie Ihre monatliche Hypothekenrate (Annuität).",
+      "fields": {
+        "amount": "Darlehensbetrag (₽)",
+        "rate": "Zinssatz (% pro Jahr)",
+        "term": "Laufzeit (Jahre)"
+      }
+    },
+    "deposit": {
+      "title": "Einlagenrechner",
+      "description": "Berechnen Sie die Rendite einer Einlage mit Zinskapitalisierung.",
+      "fields": {
+        "amount": "Einlagebetrag (₽)",
+        "rate": "Zinssatz (% pro Jahr)",
+        "term": "Laufzeit (Monate)",
+        "capitalization": "Kapitalisierung"
+      }
+    },
+    "inflation": {
+      "title": "Inflationsrechner",
+      "description": "Berechnen Sie, wie sich die Kaufkraft des Geldes unter Berücksichtigung der Inflation verändert.",
+      "fields": {
+        "amount": "Betrag (₽)",
+        "inflationRate": "Inflationsrate (% pro Jahr)",
+        "years": "Anzahl der Jahre"
+      }
+    },
+    "investment-return": {
+      "title": "Rendite-Rechner für Investitionen",
+      "description": "Berechnen Sie den zukünftigen Wert Ihrer Investitionen unter Berücksichtigung der jährlichen Rendite.",
+      "fields": {
+        "amount": "Anfangsbetrag (₽)",
+        "rate": "Jährliche Rendite (%)",
+        "years": "Anlagezeitraum (Jahre)",
+        "annualAdd": "Jährliche Einzahlung (₽)"
+      }
+    },
+    "roi": {
+      "title": "ROI (Return on Investment)",
+      "description": "Rentabilität der Investition – Verhältnis von Gewinn zu Investitionen.",
+      "fields": {
+        "profit": "Gewinn (₽)",
+        "investment": "Investition (₽)"
+      }
+    },
+    "cpa": {
+      "title": "CPA (Cost per Action)",
+      "description": "Kosten pro Zielaktion (Lead, Verkauf).",
+      "fields": {
+        "adSpend": "Werbeausgaben (₽)",
+        "actions": "Anzahl der Zielaktionen"
+      }
+    },
+    "margin": {
+      "title": "Marge",
+      "description": "Prozentsatz der Marge vom Umsatz.",
+      "fields": {
+        "revenue": "Umsatz (₽)",
+        "cost": "Selbstkosten (₽)"
+      }
+    },
+    "markup": {
+      "title": "Aufschlag",
+      "description": "Prozentsatz des Aufschlags auf die Selbstkosten.",
+      "fields": {
+        "cost": "Selbstkosten (₽)",
+        "price": "Verkaufspreis (₽)"
+      }
+    },
+    "ltv": {
+      "title": "LTV (Customer Lifetime Value)",
+      "description": "Gewinn von einem Kunden über die gesamte Zusammenarbeit.",
+      "fields": {
+        "avgPurchase": "Durchschnittlicher Warenkorbwert (₽)",
+        "purchasesPerYear": "Käufe pro Jahr",
+        "avgLifetime": "Durchschnittliche Kundenlebensdauer (Jahre)",
+        "margin": "Marge (%)"
+      }
+    },
+    "bmi": {
+      "title": "Body-Mass-Index (BMI) Rechner",
+      "description": "Berechnen Sie Ihren Body-Mass-Index und bewerten Sie, ob Ihr Gewicht normal ist.",
+      "fields": {
+        "weight": "Gewicht (kg)",
+        "height": "Größe (cm)"
+      }
+    },
+    "calories": {
+      "title": "Täglicher Kalorienbedarf",
+      "description": "Ermitteln Sie, wie viele Kalorien Sie pro Tag zu sich nehmen müssen, um Ihr Gewicht zu halten.",
+      "fields": {
+        "age": "Alter (Jahre)",
+        "height": "Größe (cm)",
+        "weight": "Gewicht (kg)",
+        "gender": "Geschlecht",
+        "activity": "Aktivitätslevel"
+      }
+    },
+    "calories-for-weight-loss": {
+      "title": "Kalorien zum Abnehmen",
+      "description": "Berechnen Sie Ihre tägliche Kalorienaufnahme zur Gewichtsreduktion.",
+      "fields": {
+        "age": "Alter (Jahre)",
+        "height": "Größe (cm)",
+        "weight": "Gewicht (kg)",
+        "gender": "Geschlecht",
+        "activity": "Aktivitätslevel",
+        "deficit": "Kaloriendefizit (kcal/Tag)"
+      }
+    },
+    "ideal-weight": {
+      "title": "Idealgewicht nach Körpergröße",
+      "description": "Bestimmen Sie das Idealgewicht für Ihren gewünschten Body-Mass-Index.",
+      "fields": {
+        "height": "Größe (cm)",
+        "targetBmi": "Gewünschter BMI"
+      }
+    },
+    "body-fat": {
+      "title": "Körperfettanteil",
+      "description": "Ungefähre Schätzung des Körperfettanteils basierend auf BMI und Alter.",
+      "fields": {
+        "age": "Alter (Jahre)",
+        "bmi": "Body-Mass-Index (BMI)",
+        "gender": "Geschlecht"
+      }
+    },
+    "water-intake": {
+      "title": "Täglicher Wasserbedarf",
+      "description": "Berechnen Sie, wie viel Wasser Sie pro Tag trinken sollten.",
+      "fields": {
+        "weight": "Gewicht (kg)"
+      }
+    },
+    "compound-interest": {
+      "title": "Zinseszinsrechner",
+      "description": "Berechnen Sie den zukünftigen Wert einer Anlage mit reinvestierten Zinsen.",
+      "fields": {
+        "principal": "Anfangsbetrag (₽)",
+        "rate": "Jahreszinssatz (%)",
+        "years": "Anzahl Jahre",
+        "compoundFrequency": "Zinskapitalisierung"
+      }
+    },
+    "percentage-calculator": {
+      "title": "Prozentrechner",
+      "description": "Berechnen Sie den Prozentsatz einer Zahl oder wie viel Prozent eine Zahl von einer anderen ist.",
+      "fields": {
+        "type": "Berechnungsart",
+        "value": "Zahl",
+        "percent": "Prozent"
+      }
+    },
+    "annuity-payment": {
+      "title": "Annuitätenrechner",
+      "description": "Berechnen Sie die monatliche Annuitätenzahlung.",
+      "fields": {
+        "amount": "Kreditsumme (₽)",
+        "rate": "Jahreszinssatz (%)",
+        "term": "Laufzeit (Monate)"
+      }
+    },
+    "loan-overpayment": {
+      "title": "Kredit-Überzahlungsrechner",
+      "description": "Berechnen Sie die gesamte Überzahlung eines Kredits.",
+      "fields": {
+        "amount": "Kreditsumme (₽)",
+        "rate": "Jahreszinssatz (%)",
+        "term": "Laufzeit (Monate)"
+      }
+    },
+    "early-repayment": {
+      "title": "Vorzeitige Rückzahlung Rechner",
+      "description": "Berechnen Sie neue Zahlungshöhe oder verkürzte Laufzeit nach vorzeitiger Rückzahlung.",
+      "fields": {
+        "amount": "Restschuld (₽)",
+        "rate": "Jahreszinssatz (%)",
+        "remainingTerm": "Restlaufzeit (Monate)",
+        "earlyAmount": "Vorzeitiger Rückzahlungsbetrag (₽)",
+        "method": "Rückzahlungsmethode"
+      }
+    },
+    "tax-calculator": {
+      "title": "Steuerrechner (Einkommen/Gehalt)",
+      "description": "Berechnen Sie die Einkommensteuer und den Nettobetrag.",
+      "fields": {
+        "income": "Einkommen (₽)",
+        "taxRate": "Steuersatz (%)"
+      }
+    },
+    "net-salary": {
+      "title": "Nettogehalt Rechner",
+      "description": "Berechnen Sie das Gehalt nach Steuerabzug.",
+      "fields": {
+        "grossSalary": "Bruttogehalt (₽)",
+        "taxRate": "Steuersatz (%)"
+      }
+    },
+    "currency-converter": {
+      "title": "Währungsrechner",
+      "description": "Konvertieren Sie Rubel in Fremdwährung.",
+      "fields": {
+        "amount": "Betrag in Rubel (₽)",
+        "currency": "Währung",
+        "rate": "Wechselkurs (₽ pro Einheit)"
+      }
+    },
+    "discount-calculator": {
+      "title": "Rabattrechner",
+      "description": "Berechnen Sie den reduzierten Preis und die Ersparnis.",
+      "fields": {
+        "price": "Preis (₽)",
+        "discount": "Rabatt (%)"
+      }
+    },
+    "vat-calculator": {
+      "title": "Mehrwertsteuer-Rechner",
+      "description": "Fügen Sie die Mehrwertsteuer hinzu oder ziehen Sie sie ab.",
+      "fields": {
+        "amount": "Betrag (₽)",
+        "vatRate": "Mehrwertsteuersatz (%)",
+        "operation": "Operation"
+      }
+    },
+    "bmr": {
+      "title": "BMR (Grundumsatz)",
+      "description": "Berechnen Sie Ihren Grundumsatz.",
+      "fields": {
+        "age": "Alter (Jahre)",
+        "height": "Größe (cm)",
+        "weight": "Gewicht (kg)",
+        "gender": "Geschlecht"
+      }
+    },
+    "tdee": {
+      "title": "TDEE (Gesamtenergieverbrauch)",
+      "description": "Berechnen Sie Ihren täglichen Kalorienbedarf basierend auf Aktivität.",
+      "fields": {
+        "age": "Alter (Jahre)",
+        "height": "Größe (cm)",
+        "weight": "Gewicht (kg)",
+        "gender": "Geschlecht",
+        "activity": "Aktivitätslevel"
+      }
+    },
+    "body-fat-advanced": {
+      "title": "Erweiterter Körperfettrechner",
+      "description": "Schätzen Sie den Körperfettanteil anhand mehrerer Messungen.",
+      "fields": {
+        "neck": "Halsumfang (cm)",
+        "waist": "Taillenumfang (cm)",
+        "hip": "Hüftumfang (cm)",
+        "height": "Größe (cm)",
+        "gender": "Geschlecht"
+      }
+    },
+    "heart-rate-zones": {
+      "title": "Herzfrequenzzonen Rechner",
+      "description": "Berechnen Sie Ihre Herzfrequenzzonen für das Training.",
+      "fields": {
+        "age": "Alter (Jahre)"
+      }
+    },
+    "food-calories": {
+      "title": "Lebensmittelkalorien Rechner",
+      "description": "Schätzen Sie den Kaloriengehalt einer Mahlzeit anhand ihrer Zusammensetzung.",
+      "fields": {
+        "protein": "Protein (g)",
+        "fat": "Fett (g)",
+        "carbs": "Kohlenhydrate (g)"
+      }
+    },
+    "concrete": {
+      "title": "Betonrechner",
+      "description": "Berechnen Sie das Betonvolumen für Fundamente, Platten, Estriche.",
+      "fields": {
+        "length": "Länge (m)",
+        "width": "Breite (m)",
+        "height": "Höhe (m)"
+      }
+    },
+    "brick": {
+      "title": "Ziegelrechner",
+      "description": "Berechnen Sie die Anzahl der Ziegel für eine Wand.",
+      "fields": {
+        "length": "Wandlänge (m)",
+        "height": "Wandhöhe (m)",
+        "brickType": "Ziegeltyp",
+        "wallThickness": "Wandstärke (Ziegel)"
+      }
+    },
+    "lumber": {
+      "title": "Schnittholzrechner",
+      "description": "Berechnen Sie Volumen und Anzahl der Bretter.",
+      "fields": {
+        "length": "Länge (m)",
+        "width": "Breite (mm)",
+        "thickness": "Dicke (mm)",
+        "quantity": "Anzahl"
+      }
+    },
+    "foundation": {
+      "title": "Fundamentrechner",
+      "description": "Berechnen Sie Betonvolumen und Bewehrung für Streifenfundament.",
+      "fields": {
+        "length": "Bandlänge (m)",
+        "width": "Bandbreite (m)",
+        "height": "Bandhöhe (m)",
+        "rebarDiameter": "Bewehrungsdurchmesser (mm)"
+      }
+    },
+    "blocks": {
+      "title": "Blockrechner (Gasbeton / Schaumbeton)",
+      "description": "Berechnen Sie die Anzahl der Blöcke für Wände.",
+      "fields": {
+        "length": "Wandlänge (m)",
+        "height": "Wandhöhe (m)",
+        "blockType": "Blocktyp"
+      }
+    },
+    "roof": {
+      "title": "Dachrechner",
+      "description": "Berechnen Sie Dachfläche und Materialien.",
+      "fields": {
+        "length": "Dachneigungslänge (m)",
+        "width": "Dachneigungsbreite (m)",
+        "roofType": "Dacheindeckungstyp"
+      }
+    },
+    "tile": {
+      "title": "Fliesenrechner",
+      "description": "Berechnen Sie die Anzahl der Fliesen für Boden und Wände.",
+      "fields": {
+        "length": "Raumlänge (m)",
+        "width": "Raumbreite (m)",
+        "tileLength": "Fliesenlänge (cm)",
+        "tileWidth": "Fliesenbreite (cm)"
+      }
+    },
+    "screed": {
+      "title": "Estrichrechner",
+      "description": "Berechnen Sie das Volumen der Mischung für den Estrich.",
+      "fields": {
+        "length": "Raumlänge (m)",
+        "width": "Raumbreite (m)",
+        "thickness": "Estrichdicke (m)"
+      }
+    },
+    "insulation": {
+      "title": "Dämmstoffrechner",
+      "description": "Berechnen Sie die Menge an Dämmstoff (m², m³).",
+      "fields": {
+        "area": "Dämmfläche (m²)",
+        "thickness": "Dämmstoffdicke (m)"
+      }
+    },
+    "paint": {
+      "title": "Farbenrechner",
+      "description": "Berechnen Sie den Farbverbrauch basierend auf der Fläche.",
+      "fields": {
+        "area": "Zu streichende Fläche (m²)",
+        "consumption": "Farbverbrauch (L/m²)",
+        "coats": "Anzahl der Anstriche"
+      }
+    },
+    "wallpaper": {
+      "title": "Tapetenrechner",
+      "description": "Berechnen Sie die Anzahl der Tapetenrollen.",
+      "fields": {
+        "roomPerimeter": "Raumumfang (m)",
+        "roomHeight": "Wandhöhe (m)",
+        "rollLength": "Rollenlänge (m)",
+        "rollWidth": "Rollenbreite (m)"
+      }
+    },
+    "plaster": {
+      "title": "Putzrechner",
+      "description": "Berechnen Sie das Volumen der Putzmischung.",
+      "fields": {
+        "area": "Wandfläche (m²)",
+        "thickness": "Schichtdicke (mm)"
+      }
+    }
+  }
+}

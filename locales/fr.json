@@ -1,0 +1,416 @@
+{
+  "common": {
+    "calculate": "Calculer",
+    "result": "Résultat",
+    "related": "Calculatrices similaires",
+    "title": "Calculatrices",
+    "categories": "Catégories",
+    "all_calculators": "Toutes les calculatrices",
+    "hero_title": "Calculatrices pour toutes les tâches",
+    "hero_description": "Calculatrices en ligne pour la finance, les affaires et la santé. Calculez rapidement les indicateurs importants.",
+    "seo_title": "À propos des calculatrices",
+    "seo_description": "Notre site propose des calculatrices en ligne pratiques pour divers domaines : finance, affaires et santé. Utilisez les outils gratuitement et obtenez des résultats précis en quelques secondes.",
+    "footer_text": "CalcSite — toutes les calculatrices pour vos tâches"
+  },
+  "categories": {
+    "finance": "Finances",
+    "business": "Entreprise",
+    "health": "Santé",
+    "construction": "Construction"
+  },
+  "calculators": {
+    "loan-calculator": {
+      "title": "Calculateur de crédit",
+      "description": "Calculez votre mensualité de crédit (annuité).",
+      "fields": {
+        "amount": "Montant du crédit (₽)",
+        "rate": "Taux d'intérêt (% par an)",
+        "term": "Durée (mois)"
+      }
+    },
+    "mortgage": {
+      "title": "Calculateur hypothécaire",
+      "description": "Calculez votre mensualité hypothécaire (annuité).",
+      "fields": {
+        "amount": "Montant du prêt (₽)",
+        "rate": "Taux d'intérêt (% par an)",
+        "term": "Durée (années)"
+      }
+    },
+    "deposit": {
+      "title": "Calculateur de dépôt",
+      "description": "Calculez le rendement d'un dépôt avec capitalisation des intérêts.",
+      "fields": {
+        "amount": "Montant du dépôt (₽)",
+        "rate": "Taux d'intérêt (% par an)",
+        "term": "Durée (mois)",
+        "capitalization": "Capitalisation"
+      }
+    },
+    "inflation": {
+      "title": "Calculateur d'inflation",
+      "description": "Calculez l'évolution du pouvoir d'achat de l'argent en tenant compte de l'inflation.",
+      "fields": {
+        "amount": "Montant (₽)",
+        "inflationRate": "Taux d'inflation (% par an)",
+        "years": "Nombre d'années"
+      }
+    },
+    "investment-return": {
+      "title": "Calculateur de rendement des investissements",
+      "description": "Calculez la valeur future de vos investissements avec un rendement annuel.",
+      "fields": {
+        "amount": "Montant initial (₽)",
+        "rate": "Rendement annuel (%)",
+        "years": "Durée d'investissement (années)",
+        "annualAdd": "Ajout annuel (₽)"
+      }
+    },
+    "roi": {
+      "title": "ROI (Return on Investment)",
+      "description": "Rentabilité des investissements – rapport du profit aux investissements.",
+      "fields": {
+        "profit": "Profit (₽)",
+        "investment": "Investissement (₽)"
+      }
+    },
+    "cpa": {
+      "title": "CPA (Cost per Action)",
+      "description": "Coût par action cible (lead, vente).",
+      "fields": {
+        "adSpend": "Dépenses publicitaires (₽)",
+        "actions": "Nombre d'actions cibles"
+      }
+    },
+    "margin": {
+      "title": "Marge",
+      "description": "Pourcentage de marge par rapport au chiffre d'affaires.",
+      "fields": {
+        "revenue": "Chiffre d'affaires (₽)",
+        "cost": "Coût de revient (₽)"
+      }
+    },
+    "markup": {
+      "title": "Majoration",
+      "description": "Pourcentage de majoration par rapport au coût de revient.",
+      "fields": {
+        "cost": "Coût de revient (₽)",
+        "price": "Prix de vente (₽)"
+      }
+    },
+    "ltv": {
+      "title": "LTV (Customer Lifetime Value)",
+      "description": "Profit d'un client sur toute la durée de collaboration.",
+      "fields": {
+        "avgPurchase": "Ticket moyen (₽)",
+        "purchasesPerYear": "Achats par an",
+        "avgLifetime": "Durée de vie moyenne du client (années)",
+        "margin": "Marge (%)"
+      }
+    },
+    "bmi": {
+      "title": "Calculateur d'IMC",
+      "description": "Calculez votre indice de masse corporelle et évaluez si votre poids est normal.",
+      "fields": {
+        "weight": "Poids (kg)",
+        "height": "Taille (cm)"
+      }
+    },
+    "calories": {
+      "title": "Besoins caloriques quotidiens",
+      "description": "Découvrez combien de calories vous devez consommer par jour pour maintenir votre poids.",
+      "fields": {
+        "age": "Âge (ans)",
+        "height": "Taille (cm)",
+        "weight": "Poids (kg)",
+        "gender": "Genre",
+        "activity": "Niveau d'activité"
+      }
+    },
+    "calories-for-weight-loss": {
+      "title": "Calories pour perdre du poids",
+      "description": "Calculez votre apport calorique quotidien pour perdre du poids.",
+      "fields": {
+        "age": "Âge (ans)",
+        "height": "Taille (cm)",
+        "weight": "Poids (kg)",
+        "gender": "Genre",
+        "activity": "Niveau d'activité",
+        "deficit": "Déficit calorique (kcal/jour)"
+      }
+    },
+    "ideal-weight": {
+      "title": "Poids idéal selon la taille",
+      "description": "Déterminez le poids idéal pour l'indice de masse corporelle souhaité.",
+      "fields": {
+        "height": "Taille (cm)",
+        "targetBmi": "IMC souhaité"
+      }
+    },
+    "body-fat": {
+      "title": "Pourcentage de graisse corporelle",
+      "description": "Estimation approximative du pourcentage de graisse corporelle basée sur l'IMC et l'âge.",
+      "fields": {
+        "age": "Âge (ans)",
+        "bmi": "Indice de masse corporelle (IMC)",
+        "gender": "Genre"
+      }
+    },
+    "water-intake": {
+      "title": "Besoins quotidiens en eau",
+      "description": "Calculez combien d'eau vous devriez boire par jour.",
+      "fields": {
+        "weight": "Poids (kg)"
+      }
+    },
+    "compound-interest": {
+      "title": "Calculateur d'intérêts composés",
+      "description": "Calculez la valeur future d'un investissement avec intérêts réinvestis.",
+      "fields": {
+        "principal": "Montant initial (₽)",
+        "rate": "Taux d'intérêt annuel (%)",
+        "years": "Nombre d'années",
+        "compoundFrequency": "Fréquence de capitalisation"
+      }
+    },
+    "percentage-calculator": {
+      "title": "Calculateur de pourcentage",
+      "description": "Calculez le pourcentage d'un nombre ou le rapport entre deux nombres.",
+      "fields": {
+        "type": "Type de calcul",
+        "value": "Nombre",
+        "percent": "Pourcentage"
+      }
+    },
+    "annuity-payment": {
+      "title": "Calculateur de paiement d'annuité",
+      "description": "Calculez le paiement mensuel d'annuité.",
+      "fields": {
+        "amount": "Montant du crédit (₽)",
+        "rate": "Taux d'intérêt annuel (%)",
+        "term": "Durée (mois)"
+      }
+    },
+    "loan-overpayment": {
+      "title": "Calculateur de trop-payé de crédit",
+      "description": "Calculez le montant total des intérêts payés sur un crédit.",
+      "fields": {
+        "amount": "Montant du crédit (₽)",
+        "rate": "Taux d'intérêt annuel (%)",
+        "term": "Durée (mois)"
+      }
+    },
+    "early-repayment": {
+      "title": "Calculateur de remboursement anticipé",
+      "description": "Calculez la nouvelle mensualité ou la nouvelle durée après un remboursement anticipé.",
+      "fields": {
+        "amount": "Dette restante (₽)",
+        "rate": "Taux d'intérêt annuel (%)",
+        "remainingTerm": "Durée restante (mois)",
+        "earlyAmount": "Montant du remboursement anticipé (₽)",
+        "method": "Méthode de remboursement"
+      }
+    },
+    "tax-calculator": {
+      "title": "Calculateur d'impôt (revenu/salaire)",
+      "description": "Calculez l'impôt sur le revenu et le montant net.",
+      "fields": {
+        "income": "Revenu (₽)",
+        "taxRate": "Taux d'imposition (%)"
+      }
+    },
+    "net-salary": {
+      "title": "Calculateur de salaire net",
+      "description": "Calculez le salaire après déduction des impôts.",
+      "fields": {
+        "grossSalary": "Salaire brut (₽)",
+        "taxRate": "Taux d'imposition (%)"
+      }
+    },
+    "currency-converter": {
+      "title": "Convertisseur de devises",
+      "description": "Convertissez des roubles en devises étrangères.",
+      "fields": {
+        "amount": "Montant en roubles (₽)",
+        "currency": "Devise",
+        "rate": "Taux de change (₽ par unité)"
+      }
+    },
+    "discount-calculator": {
+      "title": "Calculateur de remise",
+      "description": "Calculez le prix après remise et les économies réalisées.",
+      "fields": {
+        "price": "Prix (₽)",
+        "discount": "Remise (%)"
+      }
+    },
+    "vat-calculator": {
+      "title": "Calculateur de TVA",
+      "description": "Ajoutez ou retirez la TVA d'un montant.",
+      "fields": {
+        "amount": "Montant (₽)",
+        "vatRate": "Taux de TVA (%)",
+        "operation": "Opération"
+      }
+    },
+    "bmr": {
+      "title": "BMR (Métabolisme de base)",
+      "description": "Calculez votre métabolisme de base.",
+      "fields": {
+        "age": "Âge (ans)",
+        "height": "Taille (cm)",
+        "weight": "Poids (kg)",
+        "gender": "Genre"
+      }
+    },
+    "tdee": {
+      "title": "TDEE (Dépense énergétique totale)",
+      "description": "Calculez vos besoins caloriques quotidiens en fonction de l'activité.",
+      "fields": {
+        "age": "Âge (ans)",
+        "height": "Taille (cm)",
+        "weight": "Poids (kg)",
+        "gender": "Genre",
+        "activity": "Niveau d'activité"
+      }
+    },
+    "body-fat-advanced": {
+      "title": "Calculateur avancé de graisse corporelle",
+      "description": "Estimez le pourcentage de graisse corporelle à l'aide de plusieurs mesures.",
+      "fields": {
+        "neck": "Tour de cou (cm)",
+        "waist": "Tour de taille (cm)",
+        "hip": "Tour de hanches (cm)",
+        "height": "Taille (cm)",
+        "gender": "Genre"
+      }
+    },
+    "heart-rate-zones": {
+      "title": "Calculateur de zones de fréquence cardiaque",
+      "description": "Calculez vos zones de fréquence cardiaque pour l'entraînement.",
+      "fields": {
+        "age": "Âge (ans)"
+      }
+    },
+    "food-calories": {
+      "title": "Calculateur de calories alimentaires",
+      "description": "Estimez la teneur en calories d'un repas selon sa composition.",
+      "fields": {
+        "protein": "Protéines (g)",
+        "fat": "Lipides (g)",
+        "carbs": "Glucides (g)"
+      }
+    },
+    "concrete": {
+      "title": "Calculateur de béton",
+      "description": "Calculez le volume de béton pour fondations, dalles, chapes.",
+      "fields": {
+        "length": "Longueur (m)",
+        "width": "Largeur (m)",
+        "height": "Hauteur (m)"
+      }
+    },
+    "brick": {
+      "title": "Calculateur de briques",
+      "description": "Calculez le nombre de briques pour un mur.",
+      "fields": {
+        "length": "Longueur du mur (m)",
+        "height": "Hauteur du mur (m)",
+        "brickType": "Type de brique",
+        "wallThickness": "Épaisseur du mur (briques)"
+      }
+    },
+    "lumber": {
+      "title": "Calculateur de bois d'œuvre",
+      "description": "Calculez le volume et la quantité de planches.",
+      "fields": {
+        "length": "Longueur (m)",
+        "width": "Largeur (mm)",
+        "thickness": "Épaisseur (mm)",
+        "quantity": "Quantité"
+      }
+    },
+    "foundation": {
+      "title": "Calculateur de fondation",
+      "description": "Calculez le volume de béton et l'armature pour une fondation en bande.",
+      "fields": {
+        "length": "Longueur de la bande (m)",
+        "width": "Largeur de la bande (m)",
+        "height": "Hauteur de la bande (m)",
+        "rebarDiameter": "Diamètre des armatures (mm)"
+      }
+    },
+    "blocks": {
+      "title": "Calculateur de blocs (béton cellulaire / mousse)",
+      "description": "Calculez le nombre de blocs pour les murs.",
+      "fields": {
+        "length": "Longueur du mur (m)",
+        "height": "Hauteur du mur (m)",
+        "blockType": "Type de bloc"
+      }
+    },
+    "roof": {
+      "title": "Calculateur de toiture",
+      "description": "Calculez la surface de toiture et les matériaux.",
+      "fields": {
+        "length": "Longueur de la pente (m)",
+        "width": "Largeur de la pente (m)",
+        "roofType": "Type de couverture"
+      }
+    },
+    "tile": {
+      "title": "Calculateur de carrelage",
+      "description": "Calculez le nombre de carreaux pour les sols et les murs.",
+      "fields": {
+        "length": "Longueur de la pièce (m)",
+        "width": "Largeur de la pièce (m)",
+        "tileLength": "Longueur du carreau (cm)",
+        "tileWidth": "Largeur du carreau (cm)"
+      }
+    },
+    "screed": {
+      "title": "Calculateur de chape",
+      "description": "Calculez le volume de mélange pour la chape de sol.",
+      "fields": {
+        "length": "Longueur de la pièce (m)",
+        "width": "Largeur de la pièce (m)",
+        "thickness": "Épaisseur de la chape (m)"
+      }
+    },
+    "insulation": {
+      "title": "Calculateur d'isolation",
+      "description": "Calculez la quantité d'isolant (m², m³).",
+      "fields": {
+        "area": "Surface à isoler (m²)",
+        "thickness": "Épaisseur de l'isolant (m)"
+      }
+    },
+    "paint": {
+      "title": "Calculateur de peinture",
+      "description": "Calculez la consommation de peinture en fonction de la surface.",
+      "fields": {
+        "area": "Surface à peindre (m²)",
+        "consumption": "Consommation de peinture (L/m²)",
+        "coats": "Nombre de couches"
+      }
+    },
+    "wallpaper": {
+      "title": "Calculateur de papier peint",
+      "description": "Calculez le nombre de rouleaux de papier peint.",
+      "fields": {
+        "roomPerimeter": "Périmètre de la pièce (m)",
+        "roomHeight": "Hauteur des murs (m)",
+        "rollLength": "Longueur du rouleau (m)",
+        "rollWidth": "Largeur du rouleau (m)"
+      }
+    },
+    "plaster": {
+      "title": "Calculateur d'enduit",
+      "description": "Calculez le volume d'enduit nécessaire.",
+      "fields": {
+        "area": "Surface des murs (m²)",
+        "thickness": "Épaisseur de la couche (mm)"
+      }
+    }
+  }
+}

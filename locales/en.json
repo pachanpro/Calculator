@@ -1,0 +1,416 @@
+{
+  "common": {
+    "calculate": "Calculate",
+    "result": "Result",
+    "related": "Related calculators",
+    "title": "Calculators",
+    "categories": "Categories",
+    "all_calculators": "All calculators",
+    "hero_title": "Calculators for any task",
+    "hero_description": "Online calculators for finance, business and health. Quickly calculate important metrics.",
+    "seo_title": "About calculators",
+    "seo_description": "Our website offers convenient online calculators for various fields: finance, business and health. Use tools for free and get accurate results in seconds.",
+    "footer_text": "CalcSite — all calculators for your tasks"
+  },
+  "categories": {
+    "finance": "Finance",
+    "business": "Business",
+    "health": "Health",
+    "construction": "Construction"
+  },
+  "calculators": {
+    "loan-calculator": {
+      "title": "Loan Calculator",
+      "description": "Calculate your monthly loan payment (annuity).",
+      "fields": {
+        "amount": "Loan amount (₽)",
+        "rate": "Interest rate (% per year)",
+        "term": "Term (months)"
+      }
+    },
+    "mortgage": {
+      "title": "Mortgage Calculator",
+      "description": "Calculate your monthly mortgage payment (annuity).",
+      "fields": {
+        "amount": "Loan amount (₽)",
+        "rate": "Interest rate (% per year)",
+        "term": "Term (years)"
+      }
+    },
+    "deposit": {
+      "title": "Deposit Calculator",
+      "description": "Calculate the return on a deposit with interest capitalization.",
+      "fields": {
+        "amount": "Deposit amount (₽)",
+        "rate": "Interest rate (% per year)",
+        "term": "Term (months)",
+        "capitalization": "Capitalization"
+      }
+    },
+    "inflation": {
+      "title": "Inflation Calculator",
+      "description": "Calculate how the purchasing power of money changes over time.",
+      "fields": {
+        "amount": "Amount (₽)",
+        "inflationRate": "Inflation rate (% per year)",
+        "years": "Number of years"
+      }
+    },
+    "investment-return": {
+      "title": "Investment Return Calculator",
+      "description": "Calculate the future value of your investments.",
+      "fields": {
+        "amount": "Initial amount (₽)",
+        "rate": "Annual return (%)",
+        "years": "Investment period (years)",
+        "annualAdd": "Annual addition (₽)"
+      }
+    },
+    "roi": {
+      "title": "ROI (Return on Investment)",
+      "description": "Calculate the return on investment.",
+      "fields": {
+        "profit": "Profit (₽)",
+        "investment": "Investment (₽)"
+      }
+    },
+    "cpa": {
+      "title": "CPA (Cost per Action)",
+      "description": "Calculate the cost per action (lead, sale).",
+      "fields": {
+        "adSpend": "Ad spend (₽)",
+        "actions": "Number of actions"
+      }
+    },
+    "margin": {
+      "title": "Margin",
+      "description": "Calculate the profit margin percentage.",
+      "fields": {
+        "revenue": "Revenue (₽)",
+        "cost": "Cost (₽)"
+      }
+    },
+    "markup": {
+      "title": "Markup",
+      "description": "Calculate the markup percentage based on cost.",
+      "fields": {
+        "cost": "Cost (₽)",
+        "price": "Selling price (₽)"
+      }
+    },
+    "ltv": {
+      "title": "LTV (Customer Lifetime Value)",
+      "description": "Calculate the lifetime value of a customer.",
+      "fields": {
+        "avgPurchase": "Average purchase value (₽)",
+        "purchasesPerYear": "Purchases per year",
+        "avgLifetime": "Average customer lifetime (years)",
+        "margin": "Margin (%)"
+      }
+    },
+    "bmi": {
+      "title": "BMI Calculator",
+      "description": "Calculate your Body Mass Index and check if your weight is normal.",
+      "fields": {
+        "weight": "Weight (kg)",
+        "height": "Height (cm)"
+      }
+    },
+    "calories": {
+      "title": "Daily Calorie Intake",
+      "description": "Find out how many calories you need per day to maintain your weight.",
+      "fields": {
+        "age": "Age (years)",
+        "height": "Height (cm)",
+        "weight": "Weight (kg)",
+        "gender": "Gender",
+        "activity": "Activity level"
+      }
+    },
+    "calories-for-weight-loss": {
+      "title": "Calories for Weight Loss",
+      "description": "Calculate your daily calorie intake for weight loss.",
+      "fields": {
+        "age": "Age (years)",
+        "height": "Height (cm)",
+        "weight": "Weight (kg)",
+        "gender": "Gender",
+        "activity": "Activity level",
+        "deficit": "Calorie deficit (kcal/day)"
+      }
+    },
+    "ideal-weight": {
+      "title": "Ideal Weight by Height",
+      "description": "Determine the ideal weight for your desired BMI.",
+      "fields": {
+        "height": "Height (cm)",
+        "targetBmi": "Desired BMI"
+      }
+    },
+    "body-fat": {
+      "title": "Body Fat Percentage",
+      "description": "Estimate your body fat percentage based on BMI and age.",
+      "fields": {
+        "age": "Age (years)",
+        "bmi": "BMI",
+        "gender": "Gender"
+      }
+    },
+    "water-intake": {
+      "title": "Daily Water Intake",
+      "description": "Calculate how much water you should drink per day.",
+      "fields": {
+        "weight": "Weight (kg)"
+      }
+    },
+    "compound-interest": {
+      "title": "Compound Interest Calculator",
+      "description": "Calculate the future value of an investment with reinvested interest.",
+      "fields": {
+        "principal": "Initial amount (₽)",
+        "rate": "Annual interest rate (%)",
+        "years": "Number of years",
+        "compoundFrequency": "Compounding frequency"
+      }
+    },
+    "percentage-calculator": {
+      "title": "Percentage Calculator",
+      "description": "Calculate percentage of a number, or what percent one number is of another.",
+      "fields": {
+        "type": "Calculation type",
+        "value": "Number",
+        "percent": "Percentage"
+      }
+    },
+    "annuity-payment": {
+      "title": "Annuity Payment Calculator",
+      "description": "Calculate the monthly annuity payment.",
+      "fields": {
+        "amount": "Loan amount (₽)",
+        "rate": "Annual interest rate (%)",
+        "term": "Term (months)"
+      }
+    },
+    "loan-overpayment": {
+      "title": "Loan Overpayment Calculator",
+      "description": "Calculate the total overpayment on a loan.",
+      "fields": {
+        "amount": "Loan amount (₽)",
+        "rate": "Annual interest rate (%)",
+        "term": "Term (months)"
+      }
+    },
+    "early-repayment": {
+      "title": "Early Loan Repayment Calculator",
+      "description": "Calculate new payment amount or reduced term after early repayment.",
+      "fields": {
+        "amount": "Remaining debt (₽)",
+        "rate": "Annual interest rate (%)",
+        "remainingTerm": "Remaining term (months)",
+        "earlyAmount": "Early repayment amount (₽)",
+        "method": "Repayment method"
+      }
+    },
+    "tax-calculator": {
+      "title": "Tax Calculator (Income/Salary)",
+      "description": "Calculate personal income tax and net amount.",
+      "fields": {
+        "income": "Income (₽)",
+        "taxRate": "Tax rate (%)"
+      }
+    },
+    "net-salary": {
+      "title": "Net Salary Calculator",
+      "description": "Calculate salary after tax deduction.",
+      "fields": {
+        "grossSalary": "Gross salary (₽)",
+        "taxRate": "Tax rate (%)"
+      }
+    },
+    "currency-converter": {
+      "title": "Currency Converter",
+      "description": "Convert rubles to foreign currency.",
+      "fields": {
+        "amount": "Amount in rubles (₽)",
+        "currency": "Currency",
+        "rate": "Exchange rate (₽ per unit)"
+      }
+    },
+    "discount-calculator": {
+      "title": "Discount Calculator",
+      "description": "Calculate discounted price and savings.",
+      "fields": {
+        "price": "Price (₽)",
+        "discount": "Discount (%)"
+      }
+    },
+    "vat-calculator": {
+      "title": "VAT Calculator",
+      "description": "Add or remove VAT from an amount.",
+      "fields": {
+        "amount": "Amount (₽)",
+        "vatRate": "VAT rate (%)",
+        "operation": "Operation"
+      }
+    },
+    "bmr": {
+      "title": "BMR (Basal Metabolic Rate)",
+      "description": "Calculate your basal metabolic rate.",
+      "fields": {
+        "age": "Age (years)",
+        "height": "Height (cm)",
+        "weight": "Weight (kg)",
+        "gender": "Gender"
+      }
+    },
+    "tdee": {
+      "title": "TDEE (Total Daily Energy Expenditure)",
+      "description": "Calculate your daily calorie needs based on activity.",
+      "fields": {
+        "age": "Age (years)",
+        "height": "Height (cm)",
+        "weight": "Weight (kg)",
+        "gender": "Gender",
+        "activity": "Activity level"
+      }
+    },
+    "body-fat-advanced": {
+      "title": "Advanced Body Fat Calculator",
+      "description": "Estimate body fat percentage using multiple measurements.",
+      "fields": {
+        "neck": "Neck circumference (cm)",
+        "waist": "Waist circumference (cm)",
+        "hip": "Hip circumference (cm)",
+        "height": "Height (cm)",
+        "gender": "Gender"
+      }
+    },
+    "heart-rate-zones": {
+      "title": "Heart Rate Zones Calculator",
+      "description": "Calculate your heart rate zones for training.",
+      "fields": {
+        "age": "Age (years)"
+      }
+    },
+    "food-calories": {
+      "title": "Food Calorie Calculator",
+      "description": "Estimate the calorie content of a meal by its composition.",
+      "fields": {
+        "protein": "Protein (g)",
+        "fat": "Fat (g)",
+        "carbs": "Carbohydrates (g)"
+      }
+    },
+    "concrete": {
+      "title": "Concrete Calculator",
+      "description": "Calculate concrete volume for foundations, slabs, screeds.",
+      "fields": {
+        "length": "Length (m)",
+        "width": "Width (m)",
+        "height": "Height (m)"
+      }
+    },
+    "brick": {
+      "title": "Brick Calculator",
+      "description": "Calculate the number of bricks for a wall.",
+      "fields": {
+        "length": "Wall length (m)",
+        "height": "Wall height (m)",
+        "brickType": "Brick type",
+        "wallThickness": "Wall thickness (bricks)"
+      }
+    },
+    "lumber": {
+      "title": "Lumber Calculator",
+      "description": "Calculate volume and quantity of boards.",
+      "fields": {
+        "length": "Length (m)",
+        "width": "Width (mm)",
+        "thickness": "Thickness (mm)",
+        "quantity": "Quantity"
+      }
+    },
+    "foundation": {
+      "title": "Foundation Calculator",
+      "description": "Calculate concrete volume and reinforcement for strip foundation.",
+      "fields": {
+        "length": "Strip length (m)",
+        "width": "Strip width (m)",
+        "height": "Strip height (m)",
+        "rebarDiameter": "Rebar diameter (mm)"
+      }
+    },
+    "blocks": {
+      "title": "Block Calculator (Aerated / Foam)",
+      "description": "Calculate the number of blocks for walls.",
+      "fields": {
+        "length": "Wall length (m)",
+        "height": "Wall height (m)",
+        "blockType": "Block type"
+      }
+    },
+    "roof": {
+      "title": "Roof Calculator",
+      "description": "Calculate roof area and materials.",
+      "fields": {
+        "length": "Slope length (m)",
+        "width": "Slope width (m)",
+        "roofType": "Roofing type"
+      }
+    },
+    "tile": {
+      "title": "Tile Calculator",
+      "description": "Calculate the number of tiles for floors and walls.",
+      "fields": {
+        "length": "Room length (m)",
+        "width": "Room width (m)",
+        "tileLength": "Tile length (cm)",
+        "tileWidth": "Tile width (cm)"
+      }
+    },
+    "screed": {
+      "title": "Floor Screed Calculator",
+      "description": "Calculate the volume of mixture for floor screed.",
+      "fields": {
+        "length": "Room length (m)",
+        "width": "Room width (m)",
+        "thickness": "Screed thickness (m)"
+      }
+    },
+    "insulation": {
+      "title": "Insulation Calculator",
+      "description": "Calculate the amount of insulation (m², m³).",
+      "fields": {
+        "area": "Insulation area (m²)",
+        "thickness": "Insulation thickness (m)"
+      }
+    },
+    "paint": {
+      "title": "Paint Calculator",
+      "description": "Calculate paint consumption based on area.",
+      "fields": {
+        "area": "Area to paint (m²)",
+        "consumption": "Paint consumption (L/m²)",
+        "coats": "Number of coats"
+      }
+    },
+    "wallpaper": {
+      "title": "Wallpaper Calculator",
+      "description": "Calculate the number of wallpaper rolls.",
+      "fields": {
+        "roomPerimeter": "Room perimeter (m)",
+        "roomHeight": "Wall height (m)",
+        "rollLength": "Roll length (m)",
+        "rollWidth": "Roll width (m)"
+      }
+    },
+    "plaster": {
+      "title": "Plaster Calculator",
+      "description": "Calculate the volume of plaster mixture.",
+      "fields": {
+        "area": "Wall area (m²)",
+        "thickness": "Layer thickness (mm)"
+      }
+    }
+  }
+}

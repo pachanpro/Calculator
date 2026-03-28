@@ -1,0 +1,416 @@
+{
+  "common": {
+    "calculate": "Calcular",
+    "result": "Resultado",
+    "related": "Calculadoras relacionadas",
+    "title": "Calculadoras",
+    "categories": "Categorías",
+    "all_calculators": "Todas las calculadoras",
+    "hero_title": "Calculadoras para cualquier tarea",
+    "hero_description": "Calculadoras en línea para finanzas, negocios y salud. Calcule rápidamente métricas importantes.",
+    "seo_title": "Acerca de las calculadoras",
+    "seo_description": "Nuestro sitio ofrece calculadoras en línea convenientes para varios campos: finanzas, negocios y salud. Utilice las herramientas de forma gratuita y obtenga resultados precisos en segundos.",
+    "footer_text": "CalcSite — todas las calculadoras para sus tareas"
+  },
+  "categories": {
+    "finance": "Finanzas",
+    "business": "Negocios",
+    "health": "Salud",
+    "construction": "Construcción"
+  },
+  "calculators": {
+    "loan-calculator": {
+      "title": "Calculadora de crédito",
+      "description": "Calcule su pago mensual de crédito (anualidad).",
+      "fields": {
+        "amount": "Monto del crédito (₽)",
+        "rate": "Tasa de interés (% anual)",
+        "term": "Plazo (meses)"
+      }
+    },
+    "mortgage": {
+      "title": "Calculadora de hipoteca",
+      "description": "Calcule su pago mensual de hipoteca (anualidad).",
+      "fields": {
+        "amount": "Monto del préstamo (₽)",
+        "rate": "Tasa de interés (% anual)",
+        "term": "Plazo (años)"
+      }
+    },
+    "deposit": {
+      "title": "Calculadora de depósito",
+      "description": "Calcule el rendimiento de un depósito con capitalización de intereses.",
+      "fields": {
+        "amount": "Monto del depósito (₽)",
+        "rate": "Tasa de interés (% anual)",
+        "term": "Plazo (meses)",
+        "capitalization": "Capitalización"
+      }
+    },
+    "inflation": {
+      "title": "Calculadora de inflación",
+      "description": "Calcule cómo cambia el poder adquisitivo del dinero con la inflación.",
+      "fields": {
+        "amount": "Monto (₽)",
+        "inflationRate": "Tasa de inflación (% anual)",
+        "years": "Número de años"
+      }
+    },
+    "investment-return": {
+      "title": "Calculadora de rendimiento de inversiones",
+      "description": "Calcule el valor futuro de sus inversiones con un rendimiento anual.",
+      "fields": {
+        "amount": "Monto inicial (₽)",
+        "rate": "Rendimiento anual (%)",
+        "years": "Período de inversión (años)",
+        "annualAdd": "Aportación anual (₽)"
+      }
+    },
+    "roi": {
+      "title": "ROI (Return on Investment)",
+      "description": "Rentabilidad de la inversión – relación entre beneficio e inversión.",
+      "fields": {
+        "profit": "Beneficio (₽)",
+        "investment": "Inversión (₽)"
+      }
+    },
+    "cpa": {
+      "title": "CPA (Cost per Action)",
+      "description": "Costo por acción objetivo (lead, venta).",
+      "fields": {
+        "adSpend": "Gastos publicitarios (₽)",
+        "actions": "Número de acciones objetivo"
+      }
+    },
+    "margin": {
+      "title": "Margen",
+      "description": "Porcentaje de margen sobre los ingresos.",
+      "fields": {
+        "revenue": "Ingresos (₽)",
+        "cost": "Costo (₽)"
+      }
+    },
+    "markup": {
+      "title": "Recargo",
+      "description": "Porcentaje de recargo sobre el costo.",
+      "fields": {
+        "cost": "Costo (₽)",
+        "price": "Precio de venta (₽)"
+      }
+    },
+    "ltv": {
+      "title": "LTV (Customer Lifetime Value)",
+      "description": "Beneficio de un cliente durante toda la colaboración.",
+      "fields": {
+        "avgPurchase": "Ticket promedio (₽)",
+        "purchasesPerYear": "Compras por año",
+        "avgLifetime": "Vida útil promedio del cliente (años)",
+        "margin": "Margen (%)"
+      }
+    },
+    "bmi": {
+      "title": "Calculadora de IMC",
+      "description": "Calcule su índice de masa corporal y evalúe si su peso es normal.",
+      "fields": {
+        "weight": "Peso (kg)",
+        "height": "Altura (cm)"
+      }
+    },
+    "calories": {
+      "title": "Necesidades calóricas diarias",
+      "description": "Descubra cuántas calorías necesita al día para mantener su peso.",
+      "fields": {
+        "age": "Edad (años)",
+        "height": "Altura (cm)",
+        "weight": "Peso (kg)",
+        "gender": "Género",
+        "activity": "Nivel de actividad"
+      }
+    },
+    "calories-for-weight-loss": {
+      "title": "Calorías para perder peso",
+      "description": "Calcule su ingesta calórica diaria para perder peso.",
+      "fields": {
+        "age": "Edad (años)",
+        "height": "Altura (cm)",
+        "weight": "Peso (kg)",
+        "gender": "Género",
+        "activity": "Nivel de actividad",
+        "deficit": "Déficit calórico (kcal/día)"
+      }
+    },
+    "ideal-weight": {
+      "title": "Peso ideal según altura",
+      "description": "Determine el peso ideal para su índice de masa corporal deseado.",
+      "fields": {
+        "height": "Altura (cm)",
+        "targetBmi": "IMC deseado"
+      }
+    },
+    "body-fat": {
+      "title": "Porcentaje de grasa corporal",
+      "description": "Estimación aproximada del porcentaje de grasa corporal según IMC y edad.",
+      "fields": {
+        "age": "Edad (años)",
+        "bmi": "Índice de masa corporal (IMC)",
+        "gender": "Género"
+      }
+    },
+    "water-intake": {
+      "title": "Necesidades diarias de agua",
+      "description": "Calcule cuánta agua debe beber al día.",
+      "fields": {
+        "weight": "Peso (kg)"
+      }
+    },
+    "compound-interest": {
+      "title": "Calculadora de interés compuesto",
+      "description": "Calcule el valor futuro de una inversión con intereses reinvertidos.",
+      "fields": {
+        "principal": "Monto inicial (₽)",
+        "rate": "Tasa de interés anual (%)",
+        "years": "Número de años",
+        "compoundFrequency": "Frecuencia de capitalización"
+      }
+    },
+    "percentage-calculator": {
+      "title": "Calculadora de porcentaje",
+      "description": "Calcule el porcentaje de un número o la relación entre dos números.",
+      "fields": {
+        "type": "Tipo de cálculo",
+        "value": "Número",
+        "percent": "Porcentaje"
+      }
+    },
+    "annuity-payment": {
+      "title": "Calculadora de pago de anualidad",
+      "description": "Calcule el pago mensual de anualidad.",
+      "fields": {
+        "amount": "Monto del crédito (₽)",
+        "rate": "Tasa de interés anual (%)",
+        "term": "Plazo (meses)"
+      }
+    },
+    "loan-overpayment": {
+      "title": "Calculadora de sobrepago de crédito",
+      "description": "Calcule el monto total de intereses pagados en un crédito.",
+      "fields": {
+        "amount": "Monto del crédito (₽)",
+        "rate": "Tasa de interés anual (%)",
+        "term": "Plazo (meses)"
+      }
+    },
+    "early-repayment": {
+      "title": "Calculadora de amortización anticipada",
+      "description": "Calcule la nueva cuota o plazo tras una amortización anticipada.",
+      "fields": {
+        "amount": "Deuda restante (₽)",
+        "rate": "Tasa de interés anual (%)",
+        "remainingTerm": "Plazo restante (meses)",
+        "earlyAmount": "Monto de amortización anticipada (₽)",
+        "method": "Método de amortización"
+      }
+    },
+    "tax-calculator": {
+      "title": "Calculadora de impuestos (ingreso/salario)",
+      "description": "Calcule el impuesto sobre la renta y el monto neto.",
+      "fields": {
+        "income": "Ingreso (₽)",
+        "taxRate": "Tasa impositiva (%)"
+      }
+    },
+    "net-salary": {
+      "title": "Calculadora de salario neto",
+      "description": "Calcule el salario después de deducciones fiscales.",
+      "fields": {
+        "grossSalary": "Salario bruto (₽)",
+        "taxRate": "Tasa impositiva (%)"
+      }
+    },
+    "currency-converter": {
+      "title": "Convertidor de moneda",
+      "description": "Convierta rublos a moneda extranjera.",
+      "fields": {
+        "amount": "Monto en rublos (₽)",
+        "currency": "Moneda",
+        "rate": "Tipo de cambio (₽ por unidad)"
+      }
+    },
+    "discount-calculator": {
+      "title": "Calculadora de descuento",
+      "description": "Calcule el precio con descuento y el ahorro.",
+      "fields": {
+        "price": "Precio (₽)",
+        "discount": "Descuento (%)"
+      }
+    },
+    "vat-calculator": {
+      "title": "Calculadora de IVA",
+      "description": "Añada o retire el IVA de un importe.",
+      "fields": {
+        "amount": "Importe (₽)",
+        "vatRate": "Tasa de IVA (%)",
+        "operation": "Operación"
+      }
+    },
+    "bmr": {
+      "title": "BMR (Tasa metabólica basal)",
+      "description": "Calcule su tasa metabólica basal.",
+      "fields": {
+        "age": "Edad (años)",
+        "height": "Altura (cm)",
+        "weight": "Peso (kg)",
+        "gender": "Género"
+      }
+    },
+    "tdee": {
+      "title": "TDEE (Gasto energético total diario)",
+      "description": "Calcule sus necesidades calóricas diarias según su actividad.",
+      "fields": {
+        "age": "Edad (años)",
+        "height": "Altura (cm)",
+        "weight": "Peso (kg)",
+        "gender": "Género",
+        "activity": "Nivel de actividad"
+      }
+    },
+    "body-fat-advanced": {
+      "title": "Calculadora avanzada de grasa corporal",
+      "description": "Estime el porcentaje de grasa corporal utilizando varias medidas.",
+      "fields": {
+        "neck": "Circunferencia del cuello (cm)",
+        "waist": "Circunferencia de la cintura (cm)",
+        "hip": "Circunferencia de la cadera (cm)",
+        "height": "Altura (cm)",
+        "gender": "Género"
+      }
+    },
+    "heart-rate-zones": {
+      "title": "Calculadora de zonas de frecuencia cardíaca",
+      "description": "Calcule sus zonas de frecuencia cardíaca para el entrenamiento.",
+      "fields": {
+        "age": "Edad (años)"
+      }
+    },
+    "food-calories": {
+      "title": "Calculadora de calorías de los alimentos",
+      "description": "Estime el contenido calórico de una comida según su composición.",
+      "fields": {
+        "protein": "Proteínas (g)",
+        "fat": "Grasas (g)",
+        "carbs": "Carbohidratos (g)"
+      }
+    },
+    "concrete": {
+      "title": "Calculadora de hormigón",
+      "description": "Calcule el volumen de hormigón para cimientos, losas, soleras.",
+      "fields": {
+        "length": "Longitud (m)",
+        "width": "Ancho (m)",
+        "height": "Altura (m)"
+      }
+    },
+    "brick": {
+      "title": "Calculadora de ladrillos",
+      "description": "Calcule el número de ladrillos para un muro.",
+      "fields": {
+        "length": "Longitud del muro (m)",
+        "height": "Altura del muro (m)",
+        "brickType": "Tipo de ladrillo",
+        "wallThickness": "Espesor del muro (ladrillos)"
+      }
+    },
+    "lumber": {
+      "title": "Calculadora de madera",
+      "description": "Calcule el volumen y la cantidad de tablas.",
+      "fields": {
+        "length": "Longitud (m)",
+        "width": "Ancho (mm)",
+        "thickness": "Grosor (mm)",
+        "quantity": "Cantidad"
+      }
+    },
+    "foundation": {
+      "title": "Calculadora de cimientos",
+      "description": "Calcule el volumen de hormigón y la armadura para cimientos de tira.",
+      "fields": {
+        "length": "Longitud de la tira (m)",
+        "width": "Ancho de la tira (m)",
+        "height": "Altura de la tira (m)",
+        "rebarDiameter": "Diámetro de la armadura (mm)"
+      }
+    },
+    "blocks": {
+      "title": "Calculadora de bloques (hormigón celular / espuma)",
+      "description": "Calcule el número de bloques para muros.",
+      "fields": {
+        "length": "Longitud del muro (m)",
+        "height": "Altura del muro (m)",
+        "blockType": "Tipo de bloque"
+      }
+    },
+    "roof": {
+      "title": "Calculadora de tejado",
+      "description": "Calcule la superficie del tejado y los materiales.",
+      "fields": {
+        "length": "Longitud de la pendiente (m)",
+        "width": "Ancho de la pendiente (m)",
+        "roofType": "Tipo de cubierta"
+      }
+    },
+    "tile": {
+      "title": "Calculadora de baldosas",
+      "description": "Calcule el número de baldosas para suelos y paredes.",
+      "fields": {
+        "length": "Longitud de la habitación (m)",
+        "width": "Ancho de la habitación (m)",
+        "tileLength": "Largo de la baldosa (cm)",
+        "tileWidth": "Ancho de la baldosa (cm)"
+      }
+    },
+    "screed": {
+      "title": "Calculadora de solera",
+      "description": "Calcule el volumen de mezcla para la solera de suelo.",
+      "fields": {
+        "length": "Longitud de la habitación (m)",
+        "width": "Ancho de la habitación (m)",
+        "thickness": "Espesor de la solera (m)"
+      }
+    },
+    "insulation": {
+      "title": "Calculadora de aislamiento",
+      "description": "Calcule la cantidad de aislamiento (m², m³).",
+      "fields": {
+        "area": "Superficie a aislar (m²)",
+        "thickness": "Espesor del aislamiento (m)"
+      }
+    },
+    "paint": {
+      "title": "Calculadora de pintura",
+      "description": "Calcule el consumo de pintura según la superficie.",
+      "fields": {
+        "area": "Superficie a pintar (m²)",
+        "consumption": "Consumo de pintura (L/m²)",
+        "coats": "Número de capas"
+      }
+    },
+    "wallpaper": {
+      "title": "Calculadora de papel pintado",
+      "description": "Calcule el número de rollos de papel pintado.",
+      "fields": {
+        "roomPerimeter": "Perímetro de la habitación (m)",
+        "roomHeight": "Altura de las paredes (m)",
+        "rollLength": "Longitud del rollo (m)",
+        "rollWidth": "Ancho del rollo (m)"
+      }
+    },
+    "plaster": {
+      "title": "Calculadora de yeso",
+      "description": "Calcule el volumen de mezcla de yeso.",
+      "fields": {
+        "area": "Superficie de las paredes (m²)",
+        "thickness": "Espesor de la capa (mm)"
+      }
+    }
+  }
+}
