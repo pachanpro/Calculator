@@ -1,25 +1,39 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+const locales = ['ru', 'en', 'de', 'fr', 'es'];
+const defaultLocale = 'ru';
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const locales = ['ru', 'en', 'de', 'fr', 'es'];
 
-  // Пропускаем системные пути
-  if (pathname.startsWith('/_next') || pathname.startsWith('/favicon.ico')) {
+  // Пропускаем системные пути (файлы, Next.js внутренние)
+  if (
+    pathname.startsWith('/_next') ||
+    pathname.startsWith('/favicon.ico') ||
+    pathname.startsWith('/api')
+  ) {
     return;
   }
 
-  // Если уже есть язык – ничего не делаем
-  if (locales.some(locale => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`)) {
+  // Проверяем, есть ли уже префикс языка в пути
+  const pathnameHasLocale = locales.some(
+    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+  );
+
+  if (pathnameHasLocale) {
     return;
   }
 
-  // Получаем язык браузера (упрощённо)
-  const acceptLang = request.headers.get('accept-language') || '';
-  const browserLang = acceptLang.split(',')[0]?.split('-')[0] || 'ru';
-  const locale = locales.includes(browserLang) ? browserLang : 'ru';
+  // Получаем язык браузера из заголовка Accept-Language
+  const acceptLanguage = request.headers.get('accept-language') || '';
+  const preferredLocale = acceptLanguage.split(',')[0]?.split('-')[0] || defaultLocale;
+  const locale = locales.includes(preferredLocale) ? preferredLocale : defaultLocale;
 
-  // Перенаправляем
+  // Создаём новый URL с префиксом языка
   const url = new URL(`/${locale}${pathname}`, request.url);
   return NextResponse.redirect(url);
 }
+
+export const config = {
+  matcher: ['/((?!_next|favicon.ico|api).*)'],
+};
