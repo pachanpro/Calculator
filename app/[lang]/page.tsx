@@ -1,16 +1,26 @@
 import { calculators, categories } from "../../data/calculators";
 import { getTranslations } from "../../lib/i18n";
-import Card from "../components/Card";
 
 type PageProps = {
   params: Promise<{ lang: string }>;
 };
 
+// Явно указываем, какие языки должны быть сгенерированы при сборке
+export async function generateStaticParams() {
+  return [
+    { lang: 'ru' },
+    { lang: 'en' },
+    { lang: 'de' },
+    { lang: 'fr' },
+    { lang: 'es' },
+  ];
+}
+
 const categoryIcons: Record<string, string> = {
   finance: "💰",
   business: "📊",
   health: "💪",
-  construction: "🏗️",
+  construction: "🔨🚬",
 };
 
 export default async function HomePage({ params }: PageProps) {
@@ -20,28 +30,34 @@ export default async function HomePage({ params }: PageProps) {
   return (
     <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
       <h1 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-        {t.common.hero_title}
+        {t.common.title}
       </h1>
 
+      {/* Категории */}
       <section className="mb-16">
         <h2 className="text-2xl font-semibold mb-6">{t.common.categories}</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((cat) => (
-            <Card
+            <a
               key={cat.slug}
               href={`/${lang}/${cat.slug}`}
-              title={t.categories[cat.slug] || cat.slug}
-              description={
-                lang === "ru"
+              className="block bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 hover:shadow-md transition duration-200"
+            >
+              <div className="text-3xl mb-3">{categoryIcons[cat.slug] || "📁"}</div>
+              <h3 className="text-xl font-semibold mb-2">
+                {t.categories[cat.slug] || cat.slug}
+              </h3>
+              <p className="text-gray-500 dark:text-gray-400 text-sm">
+                {lang === "ru"
                   ? `Калькуляторы по теме ${t.categories[cat.slug] || cat.slug}`
-                  : `Calculators for ${t.categories[cat.slug] || cat.slug}`
-              }
-              icon={categoryIcons[cat.slug] || "📁"}
-            />
+                  : `Calculators for ${t.categories[cat.slug] || cat.slug}`}
+              </p>
+            </a>
           ))}
         </div>
       </section>
 
+      {/* Все калькуляторы */}
       <section>
         <h2 className="text-2xl font-semibold mb-6">{t.common.all_calculators}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -65,13 +81,6 @@ export default async function HomePage({ params }: PageProps) {
             </a>
           ))}
         </div>
-      </section>
-
-      <section className="mt-12 max-w-3xl">
-        <h2 className="text-xl font-semibold mb-3">{t.common.seo_title}</h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-3">
-          {t.common.seo_description}
-        </p>
       </section>
     </div>
   );
