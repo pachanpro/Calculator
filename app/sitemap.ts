@@ -1,7 +1,7 @@
 import { calculators } from "../data/calculators";
 
 const languages = ["ru", "en", "de", "fr", "es"];
-const baseUrl = "onlinecalcpro.com";
+const baseUrl = "https://onlinecalcpro.com";
 
 export default async function sitemap() {
   const pages = [];
