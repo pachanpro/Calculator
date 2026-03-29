@@ -1,9 +1,3 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "/ru" }
-  ],
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/[lang]", "dest": "/[lang]" }
-  ]
+  "rewrites": [{ "source": "/", "destination": "/ru" }]
 }

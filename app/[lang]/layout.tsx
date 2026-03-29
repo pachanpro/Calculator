@@ -9,18 +9,7 @@ type Props = {
   params: Promise<{ lang: string }>;
 };
 
-export async function generateStaticParams() {
-  return [
-    { lang: "ru" },
-    { lang: "en" },
-    { lang: "de" },
-    { lang: "fr" },
-    { lang: "es" },
-  ];
-}
-
-export const dynamic = 'force-static';
-export const dynamicParams = false;
+export const runtime = 'nodejs'; // Явно указываем Node.js runtime
 
 export default async function LangLayout({ children, params }: Props) {
   const { lang } = await params;
