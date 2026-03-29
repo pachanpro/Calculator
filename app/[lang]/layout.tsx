@@ -9,16 +9,11 @@ type Props = {
   params: Promise<{ lang: string }>;
 };
 
-// Генерируем статические пути для всех языков
-export async function generateStaticParams() {
-  return [
-    { lang: "ru" },
-    { lang: "en" },
-    { lang: "de" },
-    { lang: "fr" },
-    { lang: "es" },
-  ];
-}
+// ✅ On-Demand ISR: динамическая генерация при первом запросе
+export const dynamicParams = true;
+
+// ✅ Кешируем на 1 час
+export const revalidate = 3600;
 
 export default async function LangLayout({ children, params }: Props) {
   const { lang } = await params;

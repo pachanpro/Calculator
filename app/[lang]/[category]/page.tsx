@@ -7,18 +7,11 @@ type PageProps = {
   params: Promise<{ lang: string; category: string }>;
 };
 
-// Генерируем все возможные комбинации языка и категории
-export async function generateStaticParams() {
-  const languages = ["ru", "en", "de", "fr", "es"];
-  const slugs = categories.map(c => c.slug);
-  const params: { lang: string; category: string }[] = [];
-  for (const lang of languages) {
-    for (const category of slugs) {
-      params.push({ lang, category });
-    }
-  }
-  return params;
-}
+// ✅ On-Demand ISR: динамическая генерация при первом запросе
+export const dynamicParams = true;
+
+// ✅ Кешируем на 1 час
+export const revalidate = 3600;
 
 export default async function CategoryPage({ params }: PageProps) {
   const { lang, category } = await params;
