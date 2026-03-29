@@ -1,10 +1,24 @@
 import { notFound } from "next/navigation";
-import { calculators } from "../../../data/calculators";
+import { calculators, categories } from "../../../data/calculators";
 import { getTranslations } from "../../../lib/i18n";
+import Card from "../../components/Card";
 
 type PageProps = {
   params: Promise<{ lang: string; category: string }>;
 };
+
+// Генерируем все возможные комбинации языка и категории
+export async function generateStaticParams() {
+  const languages = ["ru", "en", "de", "fr", "es"];
+  const slugs = categories.map(c => c.slug);
+  const params: { lang: string; category: string }[] = [];
+  for (const lang of languages) {
+    for (const category of slugs) {
+      params.push({ lang, category });
+    }
+  }
+  return params;
+}
 
 export default async function CategoryPage({ params }: PageProps) {
   const { lang, category } = await params;
@@ -29,23 +43,12 @@ export default async function CategoryPage({ params }: PageProps) {
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {categoryCalculators.map((calc) => (
-          <a
+          <Card
             key={`${calc.category}-${calc.slug}`}
             href={`/${lang}/${calc.category}/${calc.slug}`}
-            className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 hover:shadow-md transition duration-200 flex flex-col justify-between"
-          >
-            <div>
-              <h2 className="text-xl font-semibold mb-2">
-                {t.calculators[calc.slug]?.title || calc.title}
-              </h2>
-              <p className="text-gray-500 dark:text-gray-400 text-sm mb-4">
-                {t.calculators[calc.slug]?.description || calc.description}
-              </p>
-            </div>
-            <div className="mt-auto text-blue-600 dark:text-blue-400 text-sm font-medium hover:underline">
-              {lang === "ru" ? "Открыть →" : "Open →"}
-            </div>
-          </a>
+            title={t.calculators[calc.slug]?.title || calc.title}
+            description={t.calculators[calc.slug]?.description || calc.description}
+          />
         ))}
       </div>
     </div>

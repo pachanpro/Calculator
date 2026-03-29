@@ -6,6 +6,16 @@ type PageProps = {
   params: Promise<{ lang: string }>;
 };
 
+export async function generateStaticParams() {
+  return [
+    { lang: "ru" },
+    { lang: "en" },
+    { lang: "de" },
+    { lang: "fr" },
+    { lang: "es" },
+  ];
+}
+
 const categoryIcons: Record<string, string> = {
   finance: "💰",
   business: "📊",

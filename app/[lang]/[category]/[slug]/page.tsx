@@ -9,6 +9,18 @@ type PageProps = {
   params: Promise<{ lang: string; category: string; slug: string }>;
 };
 
+// Генерируем все возможные комбинации языка, категории и калькулятора
+export async function generateStaticParams() {
+  const languages = ["ru", "en", "de", "fr", "es"];
+  const params: { lang: string; category: string; slug: string }[] = [];
+  for (const lang of languages) {
+    for (const calc of calculators) {
+      params.push({ lang, category: calc.category, slug: calc.slug });
+    }
+  }
+  return params;
+}
+
 export async function generateMetadata({ params }: PageProps) {
   const { lang, category, slug } = await params;
   const calculator = calculators.find(
@@ -36,7 +48,7 @@ export async function generateMetadata({ params }: PageProps) {
       title,
       description,
       type: "website",
-      url: `https://ваш-сайт.ru/${lang}/${category}/${slug}`,
+      url: `https://calc-site.vercel.app/${lang}/${category}/${slug}`,
     },
     twitter: {
       card: "summary_large_image",

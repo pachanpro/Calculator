@@ -1,39 +1,18 @@
-import fs from "fs";
-import path from "path";
+// lib/i18n.ts
+import ru from '../locales/ru.json';
+import en from '../locales/en.json';
+import de from '../locales/de.json';
+import fr from '../locales/fr.json';
+import es from '../locales/es.json';
 
-const localesDir = path.join(process.cwd(), "locales");
+const translations: Record<string, any> = {
+  ru,
+  en,
+  de,
+  fr,
+  es,
+};
 
 export async function getTranslations(lang: string) {
-  try {
-    const filePath = path.join(localesDir, `${lang}.json`);
-    const content = await fs.promises.readFile(filePath, "utf8");
-    return JSON.parse(content);
-  } catch (error) {
-    // Если файл не найден, пытаемся загрузить русский
-    try {
-      const fallbackPath = path.join(localesDir, "ru.json");
-      const content = await fs.promises.readFile(fallbackPath, "utf8");
-      return JSON.parse(content);
-    } catch (fallbackError) {
-      // Если даже русский не доступен – возвращаем минимальный объект, чтобы не падало
-      console.error("Translation files not found");
-      return {
-        common: {
-          calculate: "Calculate",
-          result: "Result",
-          related: "Related",
-          title: "Calculators",
-          categories: "Categories",
-          all_calculators: "All calculators",
-          hero_title: "Calculators",
-          hero_description: "Online calculators",
-          seo_title: "About",
-          seo_description: "Useful calculators",
-          footer_text: "CalcSite — all calculators",
-        },
-        categories: {},
-        calculators: {},
-      };
-    }
-  }
+  return translations[lang] || translations.ru;
 }

@@ -9,7 +9,16 @@ type Props = {
   params: Promise<{ lang: string }>;
 };
 
-export const runtime = 'nodejs'; // Явно указываем Node.js runtime
+// Генерируем статические пути для всех языков
+export async function generateStaticParams() {
+  return [
+    { lang: "ru" },
+    { lang: "en" },
+    { lang: "de" },
+    { lang: "fr" },
+    { lang: "es" },
+  ];
+}
 
 export default async function LangLayout({ children, params }: Props) {
   const { lang } = await params;
