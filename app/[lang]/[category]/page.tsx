@@ -7,7 +7,6 @@ type PageProps = {
   params: Promise<{ lang: string; category: string }>;
 };
 
-// Генерируем все возможные комбинации языка и категории
 export async function generateStaticParams() {
   const languages = ["ru", "en", "de", "fr", "es"];
   const slugs = categories.map(c => c.slug);
