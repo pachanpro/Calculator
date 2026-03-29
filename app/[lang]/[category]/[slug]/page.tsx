@@ -9,7 +9,6 @@ type PageProps = {
   params: Promise<{ lang: string; category: string; slug: string }>;
 };
 
-// Генерируем все возможные комбинации языка, категории и калькулятора
 export async function generateStaticParams() {
   const languages = ["ru", "en", "de", "fr", "es"];
   const params: { lang: string; category: string; slug: string }[] = [];
@@ -92,7 +91,7 @@ export default async function Page({ params }: PageProps) {
     .slice(0, 4);
 
   return (
-    <>
+    <>  
       <main className="max-w-3xl mx-auto px-4 py-8 sm:px-6">
         <h1 className="text-3xl font-bold mb-4">
           {calcData.title || calculator.title}
