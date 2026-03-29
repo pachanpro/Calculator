@@ -9,24 +9,8 @@ type PageProps = {
   params: Promise<{ lang: string; category: string; slug: string }>;
 };
 
-<<<<<<< HEAD
-// ✅ On-Demand ISR: динамическая генерация при первом запросе
 export const dynamicParams = true;
-
-// ✅ Кешируем на 1 час
 export const revalidate = 3600;
-=======
-export async function generateStaticParams() {
-  const languages = ["ru", "en", "de", "fr", "es"];
-  const params: { lang: string; category: string; slug: string }[] = [];
-  for (const lang of languages) {
-    for (const calc of calculators) {
-      params.push({ lang, category: calc.category, slug: calc.slug });
-    }
-  }
-  return params;
-}
->>>>>>> d60039f5453b92a22607b5978ca2fa749dd88bfe
 
 export async function generateMetadata({ params }: PageProps) {
   const { lang, category, slug } = await params;
@@ -99,7 +83,7 @@ export default async function Page({ params }: PageProps) {
     .slice(0, 4);
 
   return (
-    <>  
+    <>
       <main className="max-w-3xl mx-auto px-4 py-8 sm:px-6">
         <h1 className="text-3xl font-bold mb-4">
           {calcData.title || calculator.title}
