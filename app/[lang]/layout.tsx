@@ -9,16 +9,30 @@ type Props = {
   params: Promise<{ lang: string }>;
 };
 
+export async function generateStaticParams() {
+  return [
+    { lang: "ru" },
+    { lang: "en" },
+    { lang: "de" },
+    { lang: "fr" },
+    { lang: "es" },
+  ];
+}
+
+export const dynamic = 'force-static';
+export const dynamicParams = false;
+
 export default async function LangLayout({ children, params }: Props) {
   const { lang } = await params;
   const t = await getTranslations(lang);
+
   return (
     <div lang={lang} className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
       <Header />
       <main className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
         {children}
       </main>
-      <Footer text={t.common.footer_text} />
+      <Footer footerText={t.common.footer_text} />
     </div>
   );
 }
