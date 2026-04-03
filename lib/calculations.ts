@@ -3,7 +3,7 @@ type Values = Record<string, number | string>;
 
 export function calculate(formulaType: string, values: Values): number | null {
   switch (formulaType) {
-    // Финансы (существующие)
+    // Финансы
     case "loan":
       return calculateLoan(values);
     case "mortgage":
@@ -14,31 +14,6 @@ export function calculate(formulaType: string, values: Values): number | null {
       return calculateInflation(values);
     case "investment":
       return calculateInvestment(values);
-    // Бизнес (существующие)
-    case "roi":
-      return calculateROI(values);
-    case "cpa":
-      return calculateCPA(values);
-    case "margin":
-      return calculateMargin(values);
-    case "markup":
-      return calculateMarkup(values);
-    case "ltv":
-      return calculateLTV(values);
-    // Здоровье (существующие)
-    case "bmi":
-      return calculateBMI(values);
-    case "calories":
-      return calculateCalories(values);
-    case "caloriesForWeightLoss":
-      return calculateCaloriesForWeightLoss(values);
-    case "idealWeight":
-      return calculateIdealWeight(values);
-    case "bodyFat":
-      return calculateBodyFat(values);
-    case "waterIntake":
-      return calculateWaterIntake(values);
-    // Новые финансовые/бизнес
     case "compoundInterest":
       return calculateCompoundInterest(values);
     case "percentage":
@@ -57,7 +32,30 @@ export function calculate(formulaType: string, values: Values): number | null {
       return calculateDiscount(values);
     case "vat":
       return calculateVAT(values);
-    // Новые здоровье
+    // Бизнес
+    case "roi":
+      return calculateROI(values);
+    case "cpa":
+      return calculateCPA(values);
+    case "margin":
+      return calculateMargin(values);
+    case "markup":
+      return calculateMarkup(values);
+    case "ltv":
+      return calculateLTV(values);
+    // Здоровье
+    case "bmi":
+      return calculateBMI(values);
+    case "calories":
+      return calculateCalories(values);
+    case "caloriesForWeightLoss":
+      return calculateCaloriesForWeightLoss(values);
+    case "idealWeight":
+      return calculateIdealWeight(values);
+    case "bodyFat":
+      return calculateBodyFat(values);
+    case "waterIntake":
+      return calculateWaterIntake(values);
     case "bmr":
       return calculateBMR(values);
     case "tdee":
@@ -98,7 +96,7 @@ export function calculate(formulaType: string, values: Values): number | null {
   }
 }
 
-// ========== ФИНАНСЫ (существующие) ==========
+// ========== ФИНАНСЫ ==========
 function calculateLoan(values: Values): number {
   const amount = Number(values.amount);
   const rate = Number(values.rate) / 100 / 12;
@@ -157,7 +155,103 @@ function calculateInvestment(values: Values): number {
   return future;
 }
 
-// ========== БИЗНЕС (существующие) ==========
+function calculateCompoundInterest(values: Values): number {
+  const principal = Number(values.principal);
+  const rate = Number(values.rate) / 100;
+  const years = Number(values.years);
+  const freq = values.compoundFrequency as string;
+  if (isNaN(principal) || isNaN(rate) || isNaN(years)) return 0;
+  if (principal <= 0 || rate <= 0 || years <= 0) return 0;
+  let periodsPerYear = 1;
+  if (freq === "monthly") periodsPerYear = 12;
+  if (freq === "quarterly") periodsPerYear = 4;
+  const totalPeriods = years * periodsPerYear;
+  const periodRate = rate / periodsPerYear;
+  return principal * Math.pow(1 + periodRate, totalPeriods);
+}
+
+function calculatePercentage(values: Values): number {
+  const type = values.type as string;
+  const value = Number(values.value);
+  const percent = Number(values.percent);
+  if (isNaN(value) || isNaN(percent)) return 0;
+  if (type === "percentOf") {
+    return (percent / 100) * value;
+  } else {
+    return (value / percent) * 100;
+  }
+}
+
+function calculateLoanOverpayment(values: Values): number {
+  const amount = Number(values.amount);
+  const rate = Number(values.rate) / 100 / 12;
+  const term = Number(values.term);
+  if (isNaN(amount) || isNaN(rate) || isNaN(term)) return 0;
+  if (amount <= 0 || rate <= 0 || term <= 0) return 0;
+  const monthlyPayment = (amount * rate * Math.pow(1 + rate, term)) / (Math.pow(1 + rate, term) - 1);
+  return monthlyPayment * term - amount;
+}
+
+function calculateEarlyRepayment(values: Values): number {
+  const remaining = Number(values.amount);
+  const rate = Number(values.rate) / 100 / 12;
+  const remainingTerm = Number(values.remainingTerm);
+  const earlyAmount = Number(values.earlyAmount);
+  const method = values.method as string;
+  if (isNaN(remaining) || isNaN(rate) || isNaN(remainingTerm) || isNaN(earlyAmount)) return 0;
+  if (remaining <= 0 || rate <= 0 || remainingTerm <= 0 || earlyAmount <= 0) return 0;
+  const newBalance = remaining - earlyAmount;
+  if (newBalance <= 0) return 0;
+  if (method === "reducePayment") {
+    return (newBalance * rate * Math.pow(1 + rate, remainingTerm)) / (Math.pow(1 + rate, remainingTerm) - 1);
+  } else {
+    const monthlyPayment = (remaining * rate * Math.pow(1 + rate, remainingTerm)) / (Math.pow(1 + rate, remainingTerm) - 1);
+    const newTerm = Math.log(monthlyPayment / (monthlyPayment - newBalance * rate)) / Math.log(1 + rate);
+    return Math.ceil(newTerm);
+  }
+}
+
+function calculateTax(values: Values): number {
+  const income = Number(values.income);
+  const taxRate = Number(values.taxRate) / 100;
+  if (isNaN(income) || isNaN(taxRate)) return 0;
+  return income * taxRate;
+}
+
+function calculateNetSalary(values: Values): number {
+  const gross = Number(values.grossSalary);
+  const taxRate = Number(values.taxRate) / 100;
+  if (isNaN(gross) || isNaN(taxRate)) return 0;
+  return gross * (1 - taxRate);
+}
+
+function calculateCurrencyConverter(values: Values): number {
+  const amount = Number(values.amount);
+  const rate = Number(values.rate);
+  if (isNaN(amount) || isNaN(rate)) return 0;
+  return amount / rate;
+}
+
+function calculateDiscount(values: Values): number {
+  const price = Number(values.price);
+  const discount = Number(values.discount) / 100;
+  if (isNaN(price) || isNaN(discount)) return 0;
+  return price * (1 - discount);
+}
+
+function calculateVAT(values: Values): number {
+  const amount = Number(values.amount);
+  const vatRate = Number(values.vatRate) / 100;
+  const operation = values.operation as string;
+  if (isNaN(amount) || isNaN(vatRate)) return 0;
+  if (operation === "add") {
+    return amount * (1 + vatRate);
+  } else {
+    return amount / (1 + vatRate);
+  }
+}
+
+// ========== БИЗНЕС ==========
 function calculateROI(values: Values): number {
   const profit = Number(values.profit);
   const investment = Number(values.investment);
@@ -192,13 +286,10 @@ function calculateLTV(values: Values): number {
   const avgLifetime = Number(values.avgLifetime);
   const marginPercent = Number(values.margin);
   if (isNaN(avgPurchase) || isNaN(purchasesPerYear) || isNaN(avgLifetime) || isNaN(marginPercent)) return 0;
-  const revenuePerYear = avgPurchase * purchasesPerYear;
-  const totalRevenue = revenuePerYear * avgLifetime;
-  const ltv = totalRevenue * (marginPercent / 100);
-  return ltv;
+  return avgPurchase * purchasesPerYear * avgLifetime * (marginPercent / 100);
 }
 
-// ========== ЗДОРОВЬЕ (существующие) ==========
+// ========== ЗДОРОВЬЕ ==========
 function calculateBMI(values: Values): number {
   const weight = Number(values.weight);
   const heightCm = Number(values.height);
@@ -268,115 +359,6 @@ function calculateWaterIntake(values: Values): number {
   return (weight * 30) / 1000;
 }
 
-// ========== НОВЫЕ ФИНАНСОВЫЕ / БИЗНЕС ==========
-function calculateCompoundInterest(values: Values): number {
-  const principal = Number(values.principal);
-  const rate = Number(values.rate) / 100;
-  const years = Number(values.years);
-  const freq = values.compoundFrequency as string;
-  if (isNaN(principal) || isNaN(rate) || isNaN(years)) return 0;
-  if (principal <= 0 || rate <= 0 || years <= 0) return 0;
-  let periodsPerYear = 1;
-  if (freq === "monthly") periodsPerYear = 12;
-  if (freq === "quarterly") periodsPerYear = 4;
-  const totalPeriods = years * periodsPerYear;
-  const periodRate = rate / periodsPerYear;
-  const future = principal * Math.pow(1 + periodRate, totalPeriods);
-  return future;
-}
-
-function calculatePercentage(values: Values): number {
-  const type = values.type as string;
-  const value = Number(values.value);
-  const percent = Number(values.percent);
-  if (isNaN(value) || isNaN(percent)) return 0;
-  if (type === "percentOf") {
-    // X% от числа
-    return (percent / 100) * value;
-  } else {
-    // число от процента (сколько процентов составляет value от percent?)
-    return (value / percent) * 100;
-  }
-}
-
-function calculateLoanOverpayment(values: Values): number {
-  const amount = Number(values.amount);
-  const rate = Number(values.rate) / 100 / 12;
-  const term = Number(values.term);
-  if (isNaN(amount) || isNaN(rate) || isNaN(term)) return 0;
-  if (amount <= 0 || rate <= 0 || term <= 0) return 0;
-  const monthlyPayment = (amount * rate * Math.pow(1 + rate, term)) / (Math.pow(1 + rate, term) - 1);
-  const totalPayment = monthlyPayment * term;
-  return totalPayment - amount;
-}
-
-function calculateEarlyRepayment(values: Values): number {
-  // Для простоты считаем новую сумму платежа при сокращении срока
-  const remaining = Number(values.amount);
-  const rate = Number(values.rate) / 100 / 12;
-  const remainingTerm = Number(values.remainingTerm);
-  const earlyAmount = Number(values.earlyAmount);
-  const method = values.method as string;
-  if (isNaN(remaining) || isNaN(rate) || isNaN(remainingTerm) || isNaN(earlyAmount)) return 0;
-  if (remaining <= 0 || rate <= 0 || remainingTerm <= 0 || earlyAmount <= 0) return 0;
-
-  const newBalance = remaining - earlyAmount;
-  if (newBalance <= 0) return 0;
-  if (method === "reducePayment") {
-    // Новая сумма платежа
-    const newPayment = (newBalance * rate * Math.pow(1 + rate, remainingTerm)) / (Math.pow(1 + rate, remainingTerm) - 1);
-    return newPayment;
-  } else {
-    // Новый срок
-    // Логарифмическая формула для срока
-    const monthlyPayment = (remaining * rate * Math.pow(1 + rate, remainingTerm)) / (Math.pow(1 + rate, remainingTerm) - 1);
-    const newTerm = Math.log(monthlyPayment / (monthlyPayment - newBalance * rate)) / Math.log(1 + rate);
-    return Math.ceil(newTerm);
-  }
-}
-
-function calculateTax(values: Values): number {
-  const income = Number(values.income);
-  const taxRate = Number(values.taxRate) / 100;
-  if (isNaN(income) || isNaN(taxRate)) return 0;
-  const tax = income * taxRate;
-  return tax;
-}
-
-function calculateNetSalary(values: Values): number {
-  const gross = Number(values.grossSalary);
-  const taxRate = Number(values.taxRate) / 100;
-  if (isNaN(gross) || isNaN(taxRate)) return 0;
-  return gross * (1 - taxRate);
-}
-
-function calculateCurrencyConverter(values: Values): number {
-  const amount = Number(values.amount);
-  const rate = Number(values.rate);
-  if (isNaN(amount) || isNaN(rate)) return 0;
-  return amount / rate;
-}
-
-function calculateDiscount(values: Values): number {
-  const price = Number(values.price);
-  const discount = Number(values.discount) / 100;
-  if (isNaN(price) || isNaN(discount)) return 0;
-  return price * (1 - discount);
-}
-
-function calculateVAT(values: Values): number {
-  const amount = Number(values.amount);
-  const vatRate = Number(values.vatRate) / 100;
-  const operation = values.operation as string;
-  if (isNaN(amount) || isNaN(vatRate)) return 0;
-  if (operation === "add") {
-    return amount * (1 + vatRate);
-  } else {
-    return amount / (1 + vatRate);
-  }
-}
-
-// ========== НОВЫЕ ЗДОРОВЬЕ ==========
 function calculateBMR(values: Values): number {
   const age = Number(values.age);
   const height = Number(values.height);
@@ -421,9 +403,7 @@ function calculateBodyFatAdvanced(values: Values): number {
 function calculateHeartRateZones(values: Values): number {
   const age = Number(values.age);
   if (isNaN(age) || age <= 0) return 0;
-  const maxHR = 220 - age;
-  // Возвращаем только максимальную ЧСС для простоты, но можно расширить
-  return maxHR;
+  return 220 - age;
 }
 
 function calculateFoodCalories(values: Values): number {
@@ -449,11 +429,13 @@ function calculateBrick(values: Values): number {
   const brickType = values.brickType as string;
   const wallThickness = parseFloat(values.wallThickness as string);
   if (isNaN(length) || isNaN(height) || isNaN(wallThickness)) return 0;
-  let brickVolume = 0.25 * 0.12 * 0.065; // стандартный кирпич
+  // Размеры кирпича в метрах: 0.25 x 0.12 x 0.065 (одинарный)
+  let brickVolume = 0.25 * 0.12 * 0.065;
   if (brickType === "oneAndHalf") brickVolume = 0.25 * 0.12 * 0.088;
   if (brickType === "double") brickVolume = 0.25 * 0.12 * 0.138;
   const wallArea = length * height;
-  const bricksPerM2 = 1 / (0.12 * 0.065); // упрощённо, без учёта швов
+  // Количество кирпичей на 1 м² кладки в 1 кирпич (без учёта швов, упрощённо)
+  const bricksPerM2 = 1 / (0.12 * 0.065);
   const bricks = wallArea * bricksPerM2 * wallThickness;
   return Math.ceil(bricks);
 }
@@ -464,19 +446,15 @@ function calculateLumber(values: Values): number {
   const thickness = Number(values.thickness) / 1000;
   const quantity = Number(values.quantity);
   if (isNaN(length) || isNaN(width) || isNaN(thickness) || isNaN(quantity)) return 0;
-  const volume = length * width * thickness * quantity;
-  return volume; // объём в м³
+  return length * width * thickness * quantity;
 }
 
 function calculateFoundation(values: Values): number {
   const length = Number(values.length);
   const width = Number(values.width);
   const height = Number(values.height);
-  const rebarDiameter = Number(values.rebarDiameter);
   if (isNaN(length) || isNaN(width) || isNaN(height)) return 0;
-  const concreteVolume = length * width * height;
-  // упрощённо: возвращаем объём бетона
-  return concreteVolume;
+  return length * width * height;
 }
 
 function calculateBlocks(values: Values): number {
@@ -484,7 +462,7 @@ function calculateBlocks(values: Values): number {
   const height = Number(values.height);
   const blockType = values.blockType as string;
   if (isNaN(length) || isNaN(height)) return 0;
-  const blockArea = (0.6 * 0.3); // стандартный блок 600x300 мм
+  const blockArea = 0.6 * 0.3; // стандартный блок 600x300 мм
   const wallArea = length * height;
   const blocks = wallArea / blockArea;
   return Math.ceil(blocks);
@@ -494,9 +472,7 @@ function calculateRoof(values: Values): number {
   const length = Number(values.length);
   const width = Number(values.width);
   if (isNaN(length) || isNaN(width)) return 0;
-  const area = length * width;
-  // Возвращаем площадь кровли
-  return area;
+  return length * width;
 }
 
 function calculateTile(values: Values): number {
@@ -508,7 +484,7 @@ function calculateTile(values: Values): number {
   const roomArea = roomLength * roomWidth;
   const tileArea = tileLength * tileWidth;
   const tiles = roomArea / tileArea;
-  return Math.ceil(tiles * 1.1); // запас 10%
+  return Math.ceil(tiles * 1.1);
 }
 
 function calculateScreed(values: Values): number {
@@ -523,7 +499,7 @@ function calculateInsulation(values: Values): number {
   const area = Number(values.area);
   const thickness = Number(values.thickness);
   if (isNaN(area) || isNaN(thickness)) return 0;
-  return area * thickness; // объём в м³
+  return area * thickness;
 }
 
 function calculatePaint(values: Values): number {

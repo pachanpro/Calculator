@@ -24,23 +24,57 @@ type Props = {
   translatedFields: CalculatorField[];
 };
 
+// Типы калькуляторов, где результат — деньги
+const MONEY_TYPES = new Set([
+  "loan", "mortgage", "deposit", "inflation", "investment",
+  "compoundInterest", "loanOverpayment", "earlyRepayment",
+  "tax", "netSalary", "currencyConverter", "discount", "vat",
+  "roi", "cpa", "ltv"
+]);
+
+// Символы валют
+const CURRENCY_SYMBOLS: Record<string, string> = {
+  RUB: "₽",
+  USD: "$",
+  EUR: "€",
+  CNY: "¥",
+  TRY: "₺",
+};
+
+// Единицы измерения для всех типов
 const unitMap: Record<string, string> = {
-  loan: "₽",
-  mortgage: "₽",
-  deposit: "₽",
-  inflation: "₽",
-  investment: "₽",
+  // Финансы (по умолчанию будут использоваться выбранная валюта)
+  // Бизнес
   roi: "%",
   cpa: "₽",
   margin: "%",
   markup: "%",
   ltv: "₽",
-  bmi: "kg/m²",
-  calories: "kcal",
-  caloriesForWeightLoss: "kcal",
-  idealWeight: "kg",
+  // Здоровье
+  bmi: "кг/м²",
+  calories: "ккал",
+  caloriesForWeightLoss: "ккал",
+  idealWeight: "кг",
   bodyFat: "%",
-  waterIntake: "L",
+  waterIntake: "л",
+  bmr: "ккал",
+  tdee: "ккал",
+  bodyFatAdvanced: "%",
+  heartRateZones: "уд/мин",
+  foodCalories: "ккал",
+  // Стройка
+  concrete: "м³",
+  brick: "шт",
+  lumber: "м³",
+  foundation: "м³",
+  blocks: "шт",
+  roof: "м²",
+  tile: "шт",
+  screed: "м³",
+  insulation: "м³",
+  paint: "л",
+  wallpaper: "рулонов",
+  plaster: "м³",
 };
 
 export default function LocalCalculatorClient({ calculator, lang, translatedFields }: Props) {
@@ -54,9 +88,34 @@ export default function LocalCalculatorClient({ calculator, lang, translatedFiel
 
   const [result, setResult] = useState<number | null>(null);
   const [unit, setUnit] = useState("");
+  const [selectedCurrency, setSelectedCurrency] = useState<string>("RUB");
+  const [currencyRates, setCurrencyRates] = useState<Record<string, number> | null>(null);
+  const [isLoadingRates, setIsLoadingRates] = useState(true);
+
+  // Определяем, денежный ли калькулятор
+  const isMoney = MONEY_TYPES.has(calculator.formulaType);
+
+  // Загружаем курсы валют
+  useEffect(() => {
+    if (!isMoney) return;
+    fetch('/api/currency')
+      .then(res => res.json())
+      .then(data => {
+        setCurrencyRates(data);
+        setIsLoadingRates(false);
+      })
+      .catch(err => {
+        console.error('Failed to load currency rates:', err);
+        setIsLoadingRates(false);
+      });
+  }, [isMoney]);
 
   useEffect(() => {
-    setUnit(unitMap[calculator.formulaType] || "");
+    if (calculator.formulaType && unitMap[calculator.formulaType]) {
+      setUnit(unitMap[calculator.formulaType]);
+    } else {
+      setUnit("");
+    }
   }, [calculator.formulaType]);
 
   const handleChange = (key: string, value: string) => {
@@ -74,7 +133,11 @@ export default function LocalCalculatorClient({ calculator, lang, translatedFiel
         numericValues[field.key] = raw;
       }
     });
-    const res = calculate(calculator.formulaType, numericValues);
+    let res = calculate(calculator.formulaType, numericValues);
+    if (res !== null && isMoney && currencyRates) {
+      const rate = currencyRates[selectedCurrency] || 1;
+      res = res / rate;
+    }
     setResult(res);
   };
 
@@ -143,6 +206,8 @@ export default function LocalCalculatorClient({ calculator, lang, translatedFiel
     result: lang === "ru" ? "Результат" : "Result",
   };
 
+  const currencyOptions = ["RUB", "USD", "EUR", "CNY", "TRY"];
+
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-200 dark:border-gray-700">
       <h2 className="text-2xl font-semibold mb-4">
@@ -157,6 +222,29 @@ export default function LocalCalculatorClient({ calculator, lang, translatedFiel
           {renderField(field)}
         </div>
       ))}
+
+      {isMoney && (
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+            {lang === "ru" ? "Валюта результата" : "Currency of result"}
+          </label>
+          <select
+            value={selectedCurrency}
+            onChange={(e) => setSelectedCurrency(e.target.value)}
+            className="mt-1 block w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 p-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+            disabled={isLoadingRates}
+          >
+            {currencyOptions.map((curr) => (
+              <option key={curr} value={curr}>
+                {curr} ({CURRENCY_SYMBOLS[curr]})
+              </option>
+            ))}
+          </select>
+          {isLoadingRates && (
+            <p className="text-xs text-gray-500 mt-1">{lang === "ru" ? "Загрузка курсов..." : "Loading rates..."}</p>
+          )}
+        </div>
+      )}
 
       <button
         onClick={handleCalculate}
@@ -173,7 +261,7 @@ export default function LocalCalculatorClient({ calculator, lang, translatedFiel
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
             })}{" "}
-            {unit}
+            {isMoney ? (selectedCurrency === "RUB" ? "₽" : selectedCurrency) : unit}
           </p>
         </div>
       )}
