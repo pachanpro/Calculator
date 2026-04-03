@@ -4,13 +4,22 @@ import LocalCalculatorClient from "./LocalCalculatorClient";
 import Link from "next/link";
 import Script from "next/script";
 import { getTranslations } from "../../../../lib/i18n";
+import Canonical from "../../../components/Canonical";
 
 type PageProps = {
   params: Promise<{ lang: string; category: string; slug: string }>;
 };
 
-export const dynamicParams = true;
-export const revalidate = 3600;
+export async function generateStaticParams() {
+  const languages = ["ru", "en", "de", "fr", "es"];
+  const params: { lang: string; category: string; slug: string }[] = [];
+  for (const lang of languages) {
+    for (const calc of calculators) {
+      params.push({ lang, category: calc.category, slug: calc.slug });
+    }
+  }
+  return params;
+}
 
 export async function generateMetadata({ params }: PageProps) {
   const { lang, category, slug } = await params;
@@ -39,7 +48,7 @@ export async function generateMetadata({ params }: PageProps) {
       title,
       description,
       type: "website",
-      url: `https://calc-site.vercel.app/${lang}/${category}/${slug}`,
+      url: `https://onlinecalcpro.com/${lang}/${category}/${slug}`,
     },
     twitter: {
       card: "summary_large_image",
@@ -84,6 +93,7 @@ export default async function Page({ params }: PageProps) {
 
   return (
     <>
+      <Canonical />
       <main className="max-w-3xl mx-auto px-4 py-8 sm:px-6">
         <h1 className="text-3xl font-bold mb-4">
           {calcData.title || calculator.title}
